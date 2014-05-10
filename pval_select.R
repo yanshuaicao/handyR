@@ -1,3 +1,8 @@
+############################################################
+### pvalue based automatic variable elimination/selection
+### Author: Yanshuai Cao, 2014 May
+############################################################
+
 form.term <- function(s1, s2, sep=':') paste(s1, s2, sep=sep, collapse = '')
 parse.term <- function(t) unlist(strsplit(t, "[*:]"))
 term.equal <- setequal
@@ -12,6 +17,7 @@ term.in <- function(t, terms) {
 
 form.cross.terms <- function(vars1, vars2=NULL, sep=':') {
   terms <- character()
+  
   if (is.null(vars2)) {
     for (ind in 1:(length(vars1) - 1)) {
       for (ind2 in (ind+1):length(vars1)) {
