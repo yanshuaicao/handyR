@@ -1,3 +1,11 @@
+############################################################
+### Some tools for getting code version info, so that
+### experiment results could include code version 
+### that produced it.
+###
+### Author: Yanshuai Cao, 2014 May
+############################################################
+
 parse.hg.out <- function(hg.sum.out) {
   version.info <- gsub('--','-',gsub(':','-',paste(gsub(' ', '-', hg.sum.out[1]), gsub(' ','-',hg.sum.out[3]),sep='-')))
   has.pending.commit <- any(grep('modified',hg.sum.out[4])) || any(grep('unknown',hg.sum.out[4]))
